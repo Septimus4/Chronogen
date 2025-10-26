@@ -197,14 +197,20 @@ class DateGenerator:
 
         return list(self.generate())
 
-    def write(self, destination: Path | str, newline: str = "\n") -> Path:
+    def write(self, destination: Path | str, newline: str = "\n", chunk_size: int = 1000) -> Path:
         """Write generated date strings to ``destination`` and return the path."""
 
         path = Path(destination)
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", encoding="utf-8") as stream:
+            chunk = []
             for value in self.generate():
-                stream.write(value + newline)
+                chunk.append(value)
+                if len(chunk) >= chunk_size:
+                    stream.write(newline.join(chunk) + newline)
+                    chunk = []
+            if chunk:
+                stream.write(newline.join(chunk) + newline)
         return path
 
     # --- Iteration helpers -------------------------------------------------

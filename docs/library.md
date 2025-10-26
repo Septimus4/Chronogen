@@ -45,8 +45,25 @@ Use the `write` method to save outputs to disk:
 from pathlib import Path
 from chronogen import DateGenerator
 
-DateGenerator(start_year=2000, end_year=2000, format="YYYYMMDD").write(Path("wordlists/2000.txt"))
+# Basic usage
+DateGenerator(
+    start_year=2000,
+    end_year=2000,
+    format="YYYYMMDD"
+).write(Path("wordlists/2000.txt"))
+
+# With optional chunk_size for large datasets
+DateGenerator(
+    start_year=2000,
+    end_year=2020,
+    format="YYYYMMDD"
+).write(Path("wordlists/2000-2020.txt"), chunk_size=10000)
 ```
+
+Parameters:
+- `destination` (`Path` or `str`): The path where the output file will be saved.
+- `newline` (`str`, optional): The newline character to use (default: `"\n"`).
+- `chunk_size` (`int`, optional): The number of lines to write at once. Use this for large datasets to optimize performance (default: `1000`).
 
 The parent directory is created automatically if required.
 
