@@ -9,6 +9,7 @@ from textwrap import dedent
 from typing import Sequence
 
 import chronogen
+
 from .core import DateGenerator, DateGeneratorConfig, DateGeneratorError, parse_format_spec
 
 
