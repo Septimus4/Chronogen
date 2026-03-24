@@ -200,9 +200,12 @@ class DateGenerator:
     def write(self, destination: Path | str, newline: str = "\n", chunk_size: int = 1000) -> Path:
         """Write generated date strings to ``destination`` and return the path."""
 
+        if not isinstance(chunk_size, int) or isinstance(chunk_size, bool) or chunk_size < 1:
+            raise DateGeneratorError("chunk_size must be an integer greater than or equal to 1")
+
         path = Path(destination)
         path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("w", encoding="utf-8") as stream:
+        with path.open("w", encoding="utf-8", newline="") as stream:
             chunk = []
             for value in self.generate():
                 chunk.append(value)
