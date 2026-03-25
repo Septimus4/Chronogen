@@ -84,4 +84,4 @@ python -m build
 
 ## License
 
-This project is distributed under the terms of the GNU General Public License v3.0. See [LICENSE](LICENSE).
+This project is distributed under the terms of the GNU Lesser General Public License v3.0. See [LICENSE](LICENSE).

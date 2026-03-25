@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chronogen"
-version = "1.0.0"
+version = "1.0.1"
 description = "Generate customizable date wordlists."
 readme = "README.md"
 authors = [{ name = "William Le Roux" }]

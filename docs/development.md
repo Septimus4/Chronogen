@@ -39,7 +39,7 @@ Tests are written with `pytest` and collect coverage information automatically.
 pytest
 ```
 
-Coverage reports are printed to the terminal and should remain near 100% for new contributions.
+Coverage reports are printed to the terminal and should remain near 80% for new contributions.
 
 ## Continuous integration
 
